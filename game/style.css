@@ -1,0 +1,62 @@
+/* Neon Harbor — neon-noir UI. System fonts only, everything offline. */
+:root {
+  --pink: #ff2d78;
+  --gold: #ffd700;
+  --cyan: #5cd6ff;
+  --panel: rgba(12, 14, 28, 0.92);
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; overflow: hidden; background: #0b0d1a; }
+body { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; color: #f2f2f2; }
+#game { position: fixed; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; }
+#status { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* ---- HUD ---- */
+#hud { position: fixed; inset: 0; pointer-events: none; z-index: 5; }
+#hud-left { position: absolute; top: 14px; left: 16px; }
+#money { font-size: 30px; font-weight: 800; color: #7dff9e; text-shadow: 0 2px 6px rgba(0,0,0,.7); }
+#health { width: 190px; height: 12px; margin-top: 6px; background: rgba(0,0,0,.55); border: 1px solid rgba(255,255,255,.35); border-radius: 6px; overflow: hidden; }
+#health-fill { height: 100%; width: 100%; background: #2ecc71; transition: width .2s; }
+#stars { margin-top: 6px; font-size: 26px; letter-spacing: 4px; color: var(--gold); text-shadow: 0 0 10px rgba(255,215,0,.6), 0 2px 4px rgba(0,0,0,.8); }
+#stars.hot { color: #ff4444; animation: blink .5s steps(2) infinite; }
+@keyframes blink { 50% { opacity: .55; } }
+#ammo { margin-top: 6px; font-size: 14px; font-weight: 700; color: var(--cyan); text-shadow: 0 1px 4px #000; }
+#hud-top { position: absolute; top: 14px; left: 50%; transform: translateX(-50%); text-align: center; }
+#clock { font-size: 26px; font-weight: 800; text-shadow: 0 2px 6px #000; }
+#district { display: block; font-size: 15px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); text-shadow: 0 1px 4px #000; }
+#minimap { position: absolute; top: 14px; right: 16px; width: 200px; height: 200px; border: 2px solid rgba(255,255,255,.45); border-radius: 10px; background: #14161f; box-shadow: 0 4px 18px rgba(0,0,0,.6); }
+#objective { position: absolute; top: 14px; left: 50%; transform: translateX(-50%); margin-top: 64px; max-width: 560px; padding: 9px 16px; background: rgba(10,12,24,.78); border: 1px solid rgba(255,215,0,.55); border-left: 4px solid var(--gold); border-radius: 8px; font-size: 15px; line-height: 1.45; }
+#objective b { color: var(--gold); }
+#speed { position: absolute; right: 18px; bottom: 18px; font-size: 26px; font-weight: 800; color: #fff; text-shadow: 0 2px 6px #000; }
+#toast { position: absolute; left: 50%; bottom: 84px; transform: translateX(-50%); padding: 10px 20px; background: rgba(10,12,24,.85); border: 1px solid rgba(255,255,255,.3); border-radius: 8px; font-size: 16px; font-weight: 600; opacity: 0; transition: opacity .3s; white-space: nowrap; }
+#busted-meter { position: absolute; left: 50%; top: 38%; transform: translateX(-50%); text-align: center; }
+#busted-meter span { font-size: 34px; font-weight: 900; letter-spacing: 6px; color: #ff4444; text-shadow: 0 0 18px rgba(255,0,0,.8), 0 2px 4px #000; }
+#busted-meter .busted-track { width: 260px; height: 10px; margin: 8px auto 0; background: rgba(0,0,0,.6); border: 1px solid #ff4444; border-radius: 5px; overflow: hidden; }
+#busted-meter .busted-fill { height: 100%; background: #ff4444; }
+#hint { position: absolute; left: 16px; bottom: 14px; font-size: 12.5px; color: rgba(255,255,255,.75); text-shadow: 0 1px 3px #000; max-width: 480px; line-height: 1.5; }
+#btn-mute { position: absolute; right: 16px; bottom: 230px; pointer-events: auto; width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255,255,255,.4); background: rgba(10,12,24,.7); color: #fff; font-size: 18px; cursor: pointer; }
+
+/* ---- Screens ---- */
+.screen { position: fixed; inset: 0; z-index: 10; display: flex; align-items: center; justify-content: center; background: radial-gradient(ellipse at 50% 30%, rgba(255,45,120,.22), rgba(5,6,18,.88) 70%); }
+.screen[hidden] { display: none; }
+.panel { width: min(640px, 92vw); padding: 34px 40px; background: var(--panel); border: 1px solid rgba(255,45,120,.5); border-radius: 16px; box-shadow: 0 0 60px rgba(255,45,120,.25), 0 20px 60px rgba(0,0,0,.6); text-align: center; }
+.panel h1 { margin: 0; font-size: 64px; font-weight: 900; letter-spacing: 4px; line-height: 1; color: #fff; text-shadow: 0 0 24px rgba(255,45,120,.8), 0 0 60px rgba(255,45,120,.4); }
+.panel h1 span { display: block; color: var(--pink); }
+.panel h2 { margin: 0 0 10px; font-size: 44px; font-weight: 900; letter-spacing: 6px; color: var(--gold); text-shadow: 0 0 24px rgba(255,215,0,.5); }
+.tagline { margin: 14px 0 6px; font-size: 18px; font-weight: 700; color: var(--cyan); }
+.story { font-size: 16px; line-height: 1.6; color: #d8d8e0; }
+.fine { font-size: 13px; color: #9a9ab0; line-height: 1.5; }
+.buttons { display: flex; flex-direction: column; gap: 10px; margin: 22px auto 6px; max-width: 320px; }
+.buttons button { padding: 13px 20px; font-size: 17px; font-weight: 800; border-radius: 10px; border: 1px solid var(--pink); background: var(--pink); color: #fff; cursor: pointer; letter-spacing: .5px; }
+.buttons button:hover { background: #ff4d8d; }
+.buttons button:nth-child(2) { background: transparent; border-color: var(--cyan); color: var(--cyan); }
+.buttons button:nth-child(2):hover { background: rgba(92,214,255,.12); }
+.buttons button:nth-child(3) { background: transparent; border-color: #777; color: #ccc; }
+
+/* ---- Dialog ---- */
+#dialog { position: fixed; left: 50%; bottom: 26px; transform: translateX(-50%); z-index: 8; width: min(680px, 92vw); padding: 18px 22px 14px; background: var(--panel); border: 1px solid rgba(92,214,255,.5); border-left: 5px solid var(--cyan); border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,.6); }
+#dialog[hidden] { display: none; }
+#dlg-speaker { font-size: 14px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--cyan); margin-bottom: 6px; }
+#dlg-text { font-size: 17px; line-height: 1.55; min-height: 52px; }
+#dlg-next { margin-top: 10px; padding: 8px 18px; font-size: 14px; font-weight: 800; border-radius: 8px; border: 1px solid var(--cyan); background: transparent; color: var(--cyan); cursor: pointer; float: right; }
+#dlg-next:hover { background: rgba(92,214,255,.12); }

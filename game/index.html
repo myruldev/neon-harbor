@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neon Harbor — an open-world crime game</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<canvas id="game" aria-label="Neon Harbor: drive, steal cars, dodge the police and pay off a $50,000 debt"></canvas>
+
+<!-- In-game HUD -->
+<div id="hud" hidden>
+  <div id="hud-left">
+    <div id="money">$120</div>
+    <div id="health"><div id="health-fill"></div></div>
+    <div id="stars">☆☆☆☆☆</div>
+    <div id="ammo" style="display:none">Pistol • 0 ammo</div>
+  </div>
+  <div id="hud-top">
+    <span id="clock">17:30</span>
+    <span id="district">Neon Strip</span>
+  </div>
+  <canvas id="minimap" width="200" height="200" aria-label="Minimap"></canvas>
+  <div id="objective" style="display:none"></div>
+  <div id="speed" style="display:none"></div>
+  <div id="toast"></div>
+  <div id="busted-meter" style="display:none"><span>BUSTED</span><div class="busted-track"><div class="busted-fill"></div></div></div>
+  <div id="hint">WASD move/drive • E enter car / interact • F punch • Mouse aim + click shoot • Shift run • Space brake • Esc pause • M mute</div>
+  <button id="btn-mute" type="button" title="Mute (M)">♪</button>
+</div>
+
+<!-- Title screen -->
+<div id="screen-title" class="screen">
+  <div class="panel">
+    <h1>NEON<span>HARBOR</span></h1>
+    <p class="tagline">A sun-soaked city. A $50,000 debt. One last run of jobs.</p>
+    <p class="story">Rook Calloway drove getaway cars for the wrong people. Now fixer Marla Voss
+    owns his debt — and his nights. Steal cars, outrun the Harbor PD, run her jobs,
+    and take back the city, one mission at a time.</p>
+    <div class="buttons">
+      <button id="btn-start" type="button">▶ Start the story</button>
+      <button id="btn-continue" type="button" hidden>Continue — saved game</button>
+    </div>
+    <p id="save-note" class="fine"></p>
+    <p class="fine">Keyboard + mouse. Progress saves automatically after every mission.
+    An original game — no Rockstar content, no GTA names, characters or assets.</p>
+  </div>
+</div>
+
+<!-- Pause screen -->
+<div id="screen-pause" class="screen" hidden>
+  <div class="panel">
+    <h2>PAUSED</h2>
+    <p class="story">The harbor waits. Your debt does not.</p>
+    <div class="buttons">
+      <button id="btn-resume" type="button">Resume</button>
+      <button id="btn-save" type="button">Save game</button>
+      <button id="btn-quit" type="button">Quit to title</button>
+    </div>
+  </div>
+</div>
+
+<!-- Mission dialog -->
+<div id="dialog" hidden>
+  <div id="dlg-speaker">Marla Voss</div>
+  <div id="dlg-text"></div>
+  <button id="dlg-next" type="button">Continue ▸</button>
+</div>
+
+<!-- Busted / wasted screen -->
+<div id="screen-end" class="screen" hidden>
+  <div class="panel">
+    <h2 id="end-title">BUSTED</h2>
+    <p id="end-text" class="story"></p>
+    <div class="buttons">
+      <button id="end-continue" type="button">Back on the streets</button>
+    </div>
+  </div>
+</div>
+
+<!-- Story complete screen -->
+<div id="screen-complete" class="screen" hidden>
+  <div class="panel">
+    <h2>DEBT PAID</h2>
+    <p class="story">The ledger burns tonight, and so does Rook's debt. Neon Harbor is his now —
+    drive it like you mean it. Free roam continues: steal cars, run courier jobs,
+    and keep the cops guessing.</p>
+    <div class="buttons">
+      <button id="complete-continue" type="button">Keep playing — free roam</button>
+    </div>
+  </div>
+</div>
+
+<p id="status" role="status" aria-live="polite"></p>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
