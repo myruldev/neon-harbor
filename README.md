@@ -1,8 +1,8 @@
 # Neon Harbor
 
-[![Play Neon Harbor on make.fun](https://img.shields.io/badge/Play-Neon%20Harbor-ff2d78?style=for-the-badge)](https://make.fun/r/kc2xf2b1)
-[![GTA 6 bounty — make.fun](https://img.shields.io/badge/make.fun-GTA%206%20bounty-5cd6ff?style=for-the-badge)](https://make.fun/r/kc2xf2b1)
-[![Prize $1,666 — 100 places](https://img.shields.io/badge/Prize-%241%2C666%20%C2%B7%20100%20places-ffd700?style=for-the-badge)](https://make.fun/r/kc2xf2b1)
+[![make.fun · gta6-01](https://make.fun/badge/gta6-01.svg)](https://make.fun/bounty/gta6-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-01)
+[![rank](https://make.fun/badge/gta6-01/myruldev/neon-harbor/rank.svg)](https://make.fun/bounty/gta6-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=gta6-01)
+[![reward](https://make.fun/badge/gta6-01/myruldev/neon-harbor/reward.svg)](https://make.fun/bounty/gta6-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-01)
 
 An original open-world crime game for the [make.fun GTA 6 bounty](https://make.fun/r/kc2xf2b1).
 A sun-soaked fictional seaside city, a $50,000 debt, and one last run of jobs.
